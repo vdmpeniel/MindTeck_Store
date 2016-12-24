@@ -1,0 +1,41 @@
+DOCUMENTATION
+JavaScript object oriented programing:
+Inheritance:
+	https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
+	example:
+	//To create a "class" (prototype)
+	// Define the Person constructor
+
+	var Person = function(firstName) {
+ 	 	this.firstName = firstName;
+	};
+	
+	// To add properties or methods to that prototype:
+
+	Person.prototype.walk = function(){
+  		console.log("I am walking!");
+	};
+
+	Person.prototype.sayHello = function(){
+  		console.log("Hello, I'm " + this.firstName);
+	};
+
+	//INHERITANCE:
+	// Define the Student constructor
+	function Student(firstName, subject) {  	
+  		Person.call(this, firstName);
+  		// Initialize our Student-specific properties
+  		this.subject = subject;
+	}
+
+	//set prototype to Person
+	Student.prototype = Object.create(Person.prototype); // See note below
+
+	// Set the "constructor" property to refer to Student
+	Student.prototype.constructor = Student;
+
+	// INSTANCIATION:
+	var student1 = new Student("Janet", "Applied Physics");
+
+
+
