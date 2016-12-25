@@ -7,6 +7,7 @@ TODO LIST
 -Create navegation bar <*** DONE ***>
 
 -Create Dialogs logic and Registration Dialog <*** 90% ***>
+	up to here it was a great exersice to refresh my javascript and jquery, now let's start building the site
 
 -Create a footer with its own css file <>
 

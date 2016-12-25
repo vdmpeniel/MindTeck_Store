@@ -2,11 +2,11 @@
 function UserInterface(){
 	// EVENTS
 	this.eventHandlers = function(){ 
-		eventHandlers(this);
+		eventHandlers();
 	};
+	this.registrationForm = new RegistrationForm();	
 
-	this.registrationForm = new RegistrationForm();
-	this.registrationForm.createForm("Registration");
+	//console.log("regex:" + /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test("vdmpeniel@yahoo.es"));
 }
 
 
@@ -15,40 +15,25 @@ function UserInterface(){
 
 // Event Handlers 
 function eventHandlers(){ 
-		var submited = false;
-			window.onload = function(){						
-		};
+		
+		$(window).ready(function(){	
 
-		window.onresize = function(){
-			var dialog = document.getElementById("Registration");				
-			centerDialog(dialog);
-		};
-
-		// Registration Submit Event
-		var form = document.getElementById("RegistrationForm");
-		form.addEventListener("submit", function(event){
-			handleFormSubmit(event);
-			submited = true;
 		});
 
-		// Form onchange
-		form.onchange = function(){
-			if(submited){ submitValidation(); }
-		};
+		$(window).resize(function(){						
+			centerDialog($("#Registration"));
+		});		
 
 		//Sign Up event
-		var signUp = document.getElementById("SignUp");
-		signUp.addEventListener("click", function(){
-			//ajaxLoad(getForm);
-			var dialog = document.getElementById("Registration");	
-			makeVisible(dialog);	
-			centerDialog(dialog);
+		$("#SignUp").on("click", function(){
+			makeVisible($("#Registration"));	
+			centerDialog($("#Registration"));
 		});
 
+
 		// Close event
-		var closeDialog = document.getElementById("CloseDialog");
-		closeDialog.addEventListener("click", function(){
-			makeInvisible("Registration");
+		$(".closeDialog").on("click", function(){
+			makeInvisible($(".closeDialog").parent());
 		});
 }
 

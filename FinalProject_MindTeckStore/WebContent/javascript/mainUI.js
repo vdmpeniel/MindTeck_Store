@@ -4,4 +4,9 @@ function main(){
 	var uI = new UserInterface();	
 	uI.eventHandlers();	
 }
-main();
+
+// When page is loaded start presentation layer (  equivalent of $(document).ready(function(){ ... });  )
+$(function(){
+	console.log("Ready and starting...");
+	main();
+});
