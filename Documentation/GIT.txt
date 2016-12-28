@@ -1,0 +1,5 @@
+GIT DOCUMENTATION
+
+to undo a commit:
+$ git commit -m "Something terribly misguided"              
+$ git reset HEAD~ 

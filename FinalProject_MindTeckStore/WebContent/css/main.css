@@ -4,9 +4,13 @@ body{
 	background-color: #dddddd;
 }
 
+input{	
+	border: none;
+}
 
-
-
+button:focus{
+	outline:0 !important;
+}
 
 
 

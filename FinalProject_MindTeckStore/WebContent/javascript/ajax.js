@@ -11,6 +11,7 @@ function ajaxLoad(callBackfunction){
 }
 
 
-getForm = function(xhttp){
-	document.getElementById("RegistrationForm").innerHTML = xhttp.responseText;	   
+registerUser= function(xhttp){
+	//document.getElementById("RegistrationForm").innerHTML = xhttp.responseText;
+	console.log("Registerin new User!");	
 }

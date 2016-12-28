@@ -1,69 +1,175 @@
-// Registration Form Contructor
-function RegistrationForm(){
-	Form.call(this,"Registration", "User Registration", true, false); // calling the superclass constructor	
-	
+// RegistrationForm Contructor
+function RegistrationForm(title){
+	Form.call(this, title); 	// calling the superclass constructor
+	// Properties
+	this.inputStub = [];	
+
 	// Methods
-	// Add all inputs to inputList	
-	this.createInputsStub = function(){	// This could come from a service but that is out of scope now	
-		var input = new Input();
-		input.id = "NameInput";
+	this.createInputStub = function(){
+		var input = {}
 		input.name = "name";
-		input.errorMessage = "Name has to be 5 characters or more!";
-		input.label = "Name:";
-		input.value = "Enter name here";
-		input.validation = function(value){	return value.length > 5; };
-		this.inputList.push(input);
+		input.defaultValue = "Enter name here.";
+		input.errorMessage = "Name must be 5 characters long or more!";
+		input.validation = function(name){
+			return name.length > 5;
+		};
+		this.inputStub[0] = input;
 
-		input = new Input();
-		input.id = "LastNameInput";
+		input = {}
 		input.name = "lastName";
-		input.errorMessage = "Last name has to be 5 characters or more!";
-		input.label = "Last name:";
-		input.value = "Enter last name here";
-		input.validation = function(value){ return value.length >= 5; };
-		this.inputList.push(input);
+		input.defaultValue = "Enter last name here.";
+		input.errorMessage = "Last name must be 5 characters long or more!";
+		input.validation = function(lastName){
+			return lastName.length > 5;
+		};
+		this.inputStub[1] = input;
 
-		input = new Input();
-		input.id = "emailInput";
+		input = {}
 		input.name = "email";
+		input.defaultValue = "Email goes here.";
 		input.errorMessage = "Enter a valid email!";
-		input.label = "Email:";
-		input.value = "@";
-		input.validation = function(value){ regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; return regex.test(value); };
-		this.inputList.push(input);
+		input.validation = function(email){
+			var regex = /^\w+([\.-]?\ w+)*@\w+([\.-]?\ w+)*(\.\w{2,3})+$/i;
+			return regex.test(email);
+		};
+		this.inputStub[2] = input;
 
-		input = new Input();
-		input.id = "PhoneNumberInput";
-		input.name = "phoneNumber";
-		input.errorMessage = "Phone number has to be 12 characters or more!";
-		input.label = "Phone number:";
-		input.value = "000-000-0000";
-		input.validation = function(value){ return value.length >= 12; };
-		this.inputList.push(input);
+		input = {}
+		input.name = "phone";
+		input.defaultValue = "(000)-000-0000";
+		input.errorMessage = "Enter a valid phone number!";
+		input.validation = function(phone){
+			var regex = /^(\()?(\d{3})(\))?(-|\s)*(\d{3})(-|\s)*(\d{4})$/;
+			return regex.test(phone);
+		};
+		this.inputStub[3] = input;
 
-		input = new Input();
-		input.id = "PasswordInput";
+		input = {}
 		input.name = "password";
+		input.defaultValue = "";
 		input.errorMessage = "Password must be 8 characters or more!";
-		input.label = "Password:";
-		input.value = "";
-		input.validation = function(value){ return value.length >= 8; };	
-		this.inputList.push(input);
+		input.validation = function(password){
+			return password.length > 8;
+		};
+		this.inputStub[4] = input;
 
-		input = new Input();
-		input.id = "RetypeInput";
-		input.name = "retype";
-		input.errorMessage = "Both passwords must be identical";
-		input.label = "Retype password:";
-		input.value = "";
-		input.validation = function(value){ return value !== '' && value === this.inputList[i-1].value; };	
-		this.inputList.push(input);
-	};	
+		input = {}
+		input.name = "passwordRetype";
+		input.defaultValue = "";
+		input.errorMessage = "Both passwords have to be identical!";
+		input.validation = function(password2){
+			return password2 === $("#PasswordInput").val();
+		};
+		this.inputStub[5] = input;
+	};
 
-	// Initialization calls
-	this.createInputsStub();
-	this.createForm();
-}
+	
+	this.submitValidation = function(){
+		// Initialization
+		var formDialog = $("#" + this.title + "Dialog");
+		var warningsElement = $("#" + this.title + "Warnings");
+		warningsElement.find("ul").html(""); 	
+		warningsElement.css("display", "none"); 	// Make Warnings disappear (Try makeInvisible)
+		this.isValid = true;
+
+		var formThis = this;
+		// LOOP through all inputs in the form		
+		formDialog.find("form").find("input").each(function(index, input){ 
+			var inputElement = $(input); // Converting input in a jquery object 
+			var value = inputElement.val();			
+			var inputObject = formThis.inputStub[index];			
+
+			if(inputObject.validation(value)){
+				// Update responseObject
+				formThis.responseObject[inputObject.name] = value;
+
+				// Change classes to OK!
+				inputElement.parent().parent().attr("class", "form-group has-success has-feedback");
+				inputElement.next().attr("class", "glyphicon glyphicon-ok form-control-feedback");
+			} else{ 
+
+				// Change classes to ERROR!
+				inputElement.parent().parent().attr("class", "form-group row has-error has-feedback");
+				inputElement.next().attr("class", "glyphicon glyphicon-remove form-control-feedback");	
+
+				// Append warning to warnings
+				warningsElement.find("ul").append("<li>" + inputObject.errorMessage + "</li>");
+					
+				// Form input is not valid
+				formThis.isValid = false;
+			}
+		});
+
+		// If form is not valid then show warnings
+		if(!this.isValid){ 
+			warningsElement.css("display", "block"); 	// Make it appear (Try makeVisible)
+		}				
+	};
+
+	this.eventHandlers = function(){
+		var formThis = this;
+
+		// Dialog's events
+		$("#" + this.title + "Dialog").on({			
+			click: function(event){
+				event.stopPropagation();	// So it does not close all dialogs
+			}
+		});
+
+		// Events for this form
+		$("#" + this.title + "Form").on({
+			submit: function(event){
+				// Stop default behavior
+				event.preventDefault(); 
+
+				// Validation
+				formThis.submitValidation();
+				if(formThis.isValid){
+
+				}
+
+				// Center Dialog in case the warning section changes 
+				new UserInterface().centerDialog($(this));
+
+				// Mark this form as submited at least once
+				formThis.submited = true;
+			},
+
+			change: function(){
+				if(formThis.submited){ formThis.submitValidation(); }
+			}
+					
+		});
+
+
+		// Events for all inputs in this form
+		$("#" + this.title + "Form").find("input").on({
+			focus: function(){				
+				var index = $(this).parent().parent().index();		// Get index of the div containing the input from DOM
+
+				// If value of input is not the default then clear it up
+				if($(this).val() === formThis.inputStub[index].defaultValue){
+					$(this).val("");
+				}
+			},
+
+			blur: function(){
+				var index = $(this).parent().parent().index();	   // Get index of the div containing the input from DOM	
+
+				// If input is empty the put default back in it
+				if($(this).val() === ""){
+					$(this).val(formThis.inputStub[index].defaultValue);	// Reseting the value to the default
+				}
+			}
+		});
+	};
+
+
+	// Inicialization calls
+	this.createInputStub();
+	this.eventHandlers();
+
+}	
 // RegistrationForm extends Form
 RegistrationForm.prototype = Object.create(Form.prototype);
 RegistrationForm.prototype.constructor = RegistrationForm;
