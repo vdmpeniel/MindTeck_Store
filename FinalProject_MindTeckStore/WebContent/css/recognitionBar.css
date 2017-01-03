@@ -1,0 +1,56 @@
+#UserRecognitionBar{
+	width: 100%;	
+	padding: 10px 0;
+	background-color: rgb(25, 23, 21);
+	color: rgb(100, 100, 100);
+}
+
+.profileAvatar{
+	float: left;
+	background-color: rgb(100, 100, 100);
+	width: 38px;
+	height: 38px;
+	border-radius: 50%
+}
+
+.recognitionContainer{	
+	width: 100%;
+	height: 100%;	
+	margin: auto;
+	padding: 0;
+	overflow: none;
+	vertical-aling: center;
+	padding: 4px 0 4px 0;
+}
+
+.recognitionBox{
+	position: relative;			
+	padding-right: 0;
+	height: 90%;     				
+}
+
+#Profile{	
+	margin: 0;
+	border-right: 1px solid rgb(100, 100, 100);
+}
+
+.recognitionBox p{
+	font-family: arial, sans-serif;
+	margin-left: 0;
+}
+.recognitionBox h4{
+	display: block;
+	float: left;
+	font-family: arial, sans-serif;
+	margin-left: 15px;
+}
+.recognitionBox .title{
+	clear: left;
+	font-size: 0.8em;
+}
+
+.recognitionBox .value{
+	clear: left;
+	font-size: 1.1em;
+	margin: 0;
+}

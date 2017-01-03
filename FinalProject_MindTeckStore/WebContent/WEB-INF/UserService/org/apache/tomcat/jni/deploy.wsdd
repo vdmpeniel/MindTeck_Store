@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UserService WSDL service -->
+
+  <service name="User" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://jni.tomcat.apache.org"/>
+      <parameter name="wsdlServiceElement" value="UserService"/>
+      <parameter name="schemaQualified" value="http://jni.tomcat.apache.org"/>
+      <parameter name="wsdlServicePort" value="User"/>
+      <parameter name="className" value="org.apache.tomcat.jni.User"/>
+      <parameter name="wsdlPortType" value="User"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="groupname" qname="operNS:groupname" returnQName="retNS:groupnameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:long"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="uid" qname="operNS:uid" returnQName="retNS:uidReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:string"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="username" qname="operNS:username" returnQName="retNS:usernameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:long"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="gid" qname="operNS:gid" returnQName="retNS:gidReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:string"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="homepath" qname="operNS:homepath" returnQName="retNS:homepathReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:string"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="gidCurrent" qname="operNS:gidCurrent" returnQName="retNS:gidCurrentReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="uidcompare" qname="operNS:uidcompare" returnQName="retNS:uidcompareReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:long"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="uidCurrent" qname="operNS:uidCurrent" returnQName="retNS:uidCurrentReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="usergid" qname="operNS:usergid" returnQName="retNS:usergidReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:string"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+        <fault xmlns:fns="http://jni.tomcat.apache.org" xmlns:tns="http://jni.tomcat.apache.org" name="Error" qname="fns:fault" class="org.apache.tomcat.jni.Error" type="tns:Error"/>
+      </operation>
+      <operation xmlns:operNS="http://jni.tomcat.apache.org" xmlns:retNS="http://jni.tomcat.apache.org" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="gidcompare" qname="operNS:gidcompare" returnQName="retNS:gidcompareReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in0" type="tns:long"/>
+        <parameter xmlns:pns="http://jni.tomcat.apache.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:in1" type="tns:long"/>
+      </operation>
+      <parameter name="allowedMethods" value="gidCurrent uid gid homepath uidCurrent gidcompare uidcompare usergid groupname username"/>
+
+      <typeMapping xmlns:ns="http://jni.tomcat.apache.org" qname="ns:Error" type="java:org.apache.tomcat.jni.Error" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

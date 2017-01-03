@@ -27,9 +27,11 @@ TODO LIST
 	up to here it was a great exersice to refresh my javascript and jquery, now let's start building the site
 
 -Create a footer with its own css file <>
->>>>>>> 6a474e3950aeef333450d7690754edc14ded3e80:README.txt
+
 
 -Decide If we are going to use jsp to build the app, for now plain HTML and javascript can do. Unless we wanted to showcase what we have learned about it, so far.
+
+-*** I am going to refactor all css to follow your design style and a mobile first approach. 
 
 -Create following POJOS: <>
 
