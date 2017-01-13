@@ -1,0 +1,2 @@
+Here you can find a joined strategy tutorial:
+http://www.javaroots.com/2013/07/hibernate-inheritance-joined-strategy.html
