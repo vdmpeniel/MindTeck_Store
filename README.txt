@@ -26,44 +26,63 @@ TODO LIST
 -Create Dialogs logic and Registration Dialog <*** 90% ***>
 	up to here it was a great exersice to refresh my javascript and jquery, now let's start building the site
 
--Create a footer with its own css file <>
-
-
 -Decide If we are going to use jsp to build the app, for now plain HTML and javascript can do. Unless we wanted to showcase what we have learned about it, so far.
 
--*** I am going to refactor all css to follow your design style and a mobile first approach. 
+-*** I am going to refactor all css to follow your design style and a mobile first approach. <>
 
--Create following POJOS: <>
+-Refactor AJAX access function using jquery <>
+
+-Create following POJOS: <80%>
 
   product
 
-    book
+    book <done>
 
-    training material
+    training material <done>
 
+    <The super class for the gifts is done>
     tshirt
 
     mug
 
     keychain
 
-  category
+    t-shirt
+
+  category <Category should be a class instead of a string>
 
     books
 
     training
 
-    gifts  
+    
+  user <done>
 
-  user
+    customer <done>
 
-    customer
+    admin 
 
-    admin
--Create Data Access Objects for all POJOS (Hibernate) <>
+-Create Data Access Objects for all POJOS (Hibernate) <10%>
+	Get all products
+	Get products by category 
+	update product
+	delete product
+
+	user already exist
+	get all users
+	get user
+	update user
+	delete user
+	get user cart
+	get user past orders
+
+-Create services to access the data objects delined above (JSON) <?>
 
 -Decouple architecture (Spring dependency injection) <>
 
--Create a customer Client/Services(Jersey) <> registration login (ideas for how to do authentication are welcomed) add to cart (should be a list property in the customer POJO) checkout (should empty cart, create order and change inventory accordingly)
+*** Using AJAX ***
+-Create a customer Client/Services(Jersey) <> registration login 
+	(ideas for how to do authentication are welcomed) add to cart (should be a list property in the customer POJO) checkout (should empty cart, create order and change inventory accordingly)
 
--Create an admin Client/Services(Jersey) <> Manage Products (Add / Edit / Delete products) Manage Users (Add / Edit / Delete users) Manage Orders (Add / Edit /Delete orders)
+-Create an admin Client/Services(Jersey) <> Manage Products (
+	Add / Edit / Delete products) Manage Users (Add / Edit / Delete users) Manage Orders (Add / Edit /Delete orders)
