@@ -3,3 +3,21 @@ GIT DOCUMENTATION
 to undo a commit:
 $ git commit -m "Something terribly misguided"              
 $ git reset HEAD~ 
+
+Working with remotes:
+https://help.github.com/articles/pushing-to-a-remote/
+
+Before you can start working locally
+on a remote branch, you need to fetch it as called out in answers below.
+
+To fetch a branch, you simply need to:
+
+git fetch origin
+This will fetch all of the remote branches for you.
+You can see the branches available for checkout with:
+
+git branch -v -a
+With the remote branches in hand, you now need
+to check out the branch you are interested in, giving you a local working copy:
+
+git checkout -b test origin/test

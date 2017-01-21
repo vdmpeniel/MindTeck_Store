@@ -2,6 +2,19 @@ Final_Project_MindTeck_Store
 
 A fictitious virtual books, training materials and gifts store
 
+***NOTE***
+-Using Jersey and Hybernate at the same time produced an erroras soon as the dependencies ar added to 
+the pom.xml 
+
+-So we changed strategies and are implementing "spring MVC"
+-The examples we have been using as guide seem to be outdated
+ so the first commit of the spring MVC branch is broken with error: 
+ ................java.lang.IllegalArgumentException: Cannot find class [main.java.com.mindteck.store.model.Book]
+ I am researching how to fix this at this moment 
+
+
+
+
 TODO LIST
 
 -Create navegation bar <*** DONE ***>
