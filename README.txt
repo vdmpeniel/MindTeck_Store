@@ -2,9 +2,9 @@ Final_Project_MindTeck_Store
 
 A fictitious virtual books, training materials and gifts store
 
-***NOTE***
--Using Jersey and Hybernate at the same time produced an erroras soon as the dependencies ar added to 
-the pom.xml 
+***NOTES TO SPRING MVC BRANCH***
+-Using Jersey and Hybernate at the same time produced an error as soon as the dependencies are added to 
+the pom.xml I haven't found a way to solve that. (I am adding the actual error later on) 
 
 -So we changed strategies and are implementing "spring MVC"
 -The examples we have been using as guide seem to be outdated
