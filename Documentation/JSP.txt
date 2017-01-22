@@ -1,0 +1,74 @@
+Create Mockups
+Create Data Model in MySQL
+
+
+
+*** Modularizing JSP code ***
+------------------------------------
+- All pages that are dependent on customer info should be in the WEB-INF
+folder so they are not accessible from the browser only the landing 
+should be outside it.
+	They were put into the VIEW folder
+
+- Reusable jsp code such as header and footer were put in JSP-Modules
+	jspmodules should be .jspf (fragment)
+
+- To make it work we are using a <jsp-property-group> inside the deployment descriptor (web.xml)
+	refer to the code at <!-- INCLUDING HEADER AND FOOTER --> 
+
+------------------------------------
+NEXT:
+Create all jsps:
+	FRONT:
+	-Home(generic view) index 
+		sign Up/login		
+		create customer/open session
+		see navigate catalog
+
+	-Customer page with cart/checkout links
+		if customer is also an admin show a link to  the administration page
+
+	-cart page/dialog
+		show shopping list details:
+			list of products and cuantity(product requests)
+			price
+			taxes
+			total price + taxes
+		show link to checkout
+		show link to continue shopping.
+
+	-checkout page or dialog
+		show/get order details:
+			shoping cart
+			delivery method
+			shipping address
+			pay method
+		create order 
+		cancel option
+
+	
+
+	confirmation page or dialog
+
+	BACK:
+	administration page:
+		Products:
+		create product page/dialog
+		add product 
+		edit product
+		
+		Customers: 
+			delete customer
+			add customer
+			edit customer
+
+		Orders:
+			delete order
+			add order
+			edit order
+
+
+		
+
+	
+

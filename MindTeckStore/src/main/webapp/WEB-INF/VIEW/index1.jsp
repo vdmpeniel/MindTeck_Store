@@ -1,5 +1,107 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MindTeck Store</title>
 
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!-- BOOSTRAP -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- JQUERY -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
+
+		<!-- CUSTOM CSS -->
+		<link rel="stylesheet" href="css/fonts.css">
+		<link rel="stylesheet" href="css/main.css">		
+		<link rel="stylesheet" href="css/navigationBar.css">
+		<link rel="stylesheet" href="css/jumbotron.css">
+		<link rel="stylesheet" href="css/recognitionBar.css">
+		<link rel="stylesheet" href="css/dialog.css">
+
+		<!-- JAVASCRIPT -->		
+		<script src="javascript/ajax.js" type="text/javascript"></script>
+		<script src="javascript/Form.js" type="text/javascript"></script>
+		<script src="javascript/RegistrationForm.js" type="text/javascript"></script>
+		<script src="javascript/LoginForm.js" type="text/javascript"></script>
+		<script src="javascript/userInterface.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<!-- NAVEGATION BAR -->
+		<nav class="navbar navbar-inverse">
+		
+ 			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+				 data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				 aria-controls="navbar">
+					
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<!--brand name-->
+				<a class="navbar-brand" href="#"> <span class="title logo"><strong>MINDTECK</strong>ACADEMY</span>
+					<span class="title verticalBar"></span>
+					<span class="title name">STORE</span>
+				</a>
+			</div>
+
+    		<div class="collapse navbar-collapse" id="navbar">		   		
+			 	<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Categories <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#books">Books</a></li>
+							<li><a href="#gifts">Gifts</a></li>
+							<li><a href="#training">Training</a></li>
+						</ul>
+					</li>
+				</ul>
+					
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a id="SignUpLink" href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+					</li>
+					<li class="active">
+						<a id="LogInLink" href="#">
+							<span class="glyphicon glyphicon-log-in"></span> Login 
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+				</ul>
+				
+				<ul>
+					<li>
+						<form class="navbar-form">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search">
+								<div class="input-group-btn">
+									<button class="btn btn-default" type="submit">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
+								</div>
+							</div>
+						</form>
+					</li>
+				</ul>							      		   				 
+		    </div> 
+		   							 		 		
+		</nav>
+		<!-- END NAVEGATION BAR -->
 
 		<!-- JUMBOTRON -->
 		<div class="customJumbotron">	
@@ -119,8 +221,43 @@
 			</div>			
 		</div> 
 		<!-- END MAIN CONTENT -->
-		
-		
+
+
+		<!-- FOOTER -->
+		<footer>
+			<hr>
+			<div class="container text-center">
+				<h3>Subscribe now for a 30-day trial!</h3>
+				<p>Enter your name and email bellow</p>
+				
+				<form action="#" class="form-inline" role="form">
+					<div class="form-group">
+						<label for="subscribe-name" class="sr-only">Name</label>
+						<input type="text" class="form-control" id="subscribe-name" placeholder="Name">
+					</div><!-- end form-group -->
+					<div class="form-group">
+						<label for="subscribe-email" class="sr-only">Email</label>
+						<input type="text" class="form-control" id="subscribe-email" placeholder="Email">
+					</div><!-- end form-group -->
+					<button type="submit" class="btn btn-default">Subscribe</button>
+					<p><small><em>Your email will not be used for SPAM</em></small></p>
+				</form>
+				<hr>
+
+				<ul class="list-inline">
+					<li><a href="#">Twitter</a></li>
+					<li><a href="#">Facebook</a></li>
+				</ul>
+
+				<p>Mindtek Store</p>
+
+			</div><!-- end container -->			
+		</footer>
+		<!-- END FOOTER -->
+
+
+
+
 		<!-- DIALOGS -->
 		<div id="Dialogs">
 			<!-- REGISTRATION DIALOG -->
@@ -230,5 +367,12 @@
 				</div>
 			</div>
 			<!-- END LOGIN DIALOG --> 
-		</div>		
-		<!-- END DIALOGS -->
+
+
+		</div>
+
+		<!-- CUSTOM JAVASCRIPT -->		
+		<script src="javascript/mainUI.js" type="text/javascript"></script>
+		
+	</body>
+</html>

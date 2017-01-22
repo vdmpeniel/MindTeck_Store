@@ -6,18 +6,33 @@
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	
-	<display-name>MindTeck Store</display-name>
+	<display-name>MindTeck Store</display-name>	
 	
+	<!-- LANDING PAGE -->
 	<welcome-file-list>
     	<welcome-file>index.jsp</welcome-file>    	
   	</welcome-file-list>
-	
+  	
+  	
+  	<!-- INCLUDING HEADER AND FOOTER (this is soooo beautiful LOL, it deserves a commit)-->
+  	<jsp-config>
+  		<jsp-property-group>
+  			<description>Header and Footer inclusion</description>
+  			<url-pattern>/index.jsp</url-pattern>
+  			<url-pattern>/WEB-INF/VIEW/*</url-pattern>
+  			<include-prelude>/WEB-INF/JSP-Fragments/header.jspf</include-prelude>
+  			<include-coda>/WEB-INF/JSP-Fragments/footer.jspf</include-coda>
+  		</jsp-property-group>
+  	</jsp-config>
+  	  	
+  	
+	<!-- SPRING MVC -->
   	<servlet>
  		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
  		<load-on-startup>1</load-on-startup>
 	</servlet>
-
+	
 	<servlet-mapping>
  		<servlet-name>spring</servlet-name>
  		<url-pattern>/</url-pattern>
